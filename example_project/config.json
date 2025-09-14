@@ -2,7 +2,7 @@
     "Env_Path": "/home/user/anaconda3/envs/GUI/bin/python",
     "Project_Info": {
         "Project_Name": "example",
-        "Experimenter": "operator1",
+        "Experimenter": "project",
         "Number_of_Devices": 4
     },
     "Calibration_Info": {
@@ -24,37 +24,37 @@
         }
     },
     "Depth_Computation": {
-        "Env_Path": "/home/user/anaconda3/envs/foundation_stereo/bin/python",
-        "Ckpt_Path": "/home/user/PycharmProjects/animal_pose_-gui/FoundationStereo/pretrained_models/11-33-40/model_best_bp2.pth"
+        "Env_Path": "/path/to/python",
+        "Ckpt_Path": "/path/to/pretrained_model.pth"
     },
     "Animal_Detection": {
-        "Env_Path": "/home/user/anaconda3/envs/sam2/bin/python",
-        "Ckpt_Path": "/home/user/sam2/checkpoints/sam2.1_hiera_large.pt"
+        "Env_Path": "/path/to/python",
+        "Ckpt_Path": "/path/to/pretrained_model.pth"
     },
     "Embedding_Extraction": {
-        "Env_Path": "/home/user/anaconda3/envs/pointsam/bin/python",
-        "Ckpt_Path": "/home/user/PycharmProjects/animal_pose_-gui/Point-SAM/model.safetensors",
+        "Env_Path": "/path/to/python",
+        "Ckpt_Path": "/path/to/pretrained_model.pth",
         "mask_mix_ratio": 1.0,
         "rotate_num": 16,
         "centralize": "true",
         "normalize": "true"
     },
-  "Reference_Devices": {
+    "Reference_Devices": {
         "device0": [
-            "device1",
-            "device2"
+            "device3",
+            "device1"
         ],
         "device1": [
             "device0",
-            "device3"
+            "device2"
         ],
         "device2": [
-            "device0",
+            "device1",
             "device3"
         ],
         "device3": [
-            "device1",
-            "device2"
+            "device2",
+            "device0"
         ]
-        }
+    }
 }
