@@ -1,7 +1,7 @@
 # Animal_pose_GUI
 ## Environment Setup
 This project requires three separate Python virtual environments to function correctly.
-We have tested the code on Ubuntu 22.04 with RTX 4080.
+We have tested the code on Ubuntu 22.04 with RTX 4080，intallation time for each model is estimated to be 30 minutes.
  Please follow the steps below to set up each environment.
 
 1. **Foundation Stereo Environment**:
@@ -96,7 +96,7 @@ Extrinsic calibration results
 
 ### Depth Computation
 
-Once the intrinsic and extrinsic parameters are calibrated, we can proceed to depth computation. This step requires the Foundation Stereo environment.
+Once the intrinsic and extrinsic parameters are calibrated, we can proceed to depth computation. This step requires the Foundation Stereo environment, the inference time of depth computation for a pair of stereo images is around 1.6 seconds.
 
 First, store the captured data in the specified format: Put the video frames captured by each device into "left_camera" and "right_camera" respectively. Note that the video frames of the left and right cameras at the same time should have the same name. Then, store the path of the python interpreter under the local foundation stereo environment into "Depth_Computation" > "Env_Path" in the config file, and write the path of the pretrained weight file into "Ckpt_Path". Then, on the GUI interface, select the "experiment" folder in the project to be processed and click "rectify". The photos after epipolar line correction will be stored in "left_camera_rectified" and "right_camera_rectified". Then, click "compute" to compute the depth map of each video frame, which will be stored in the "depth" folder. At the same time, the visualized depth maps will be stored in "vis_depth".
 
@@ -110,7 +110,7 @@ Visualized depth map
 
 ### Animal Detection
 
-After the depth computation is completed, we can proceed to animal detection. This step requires the SAM2 environment. Store the path of the python interpreter under the local SAM2 environment into "Animal_Detection" > "Env_Path" in the config.json file, and write the path of the pretrained weight archive file into "Ckpt_Path". 
+After the depth computation is completed, we can proceed to animal detection. the inference time of mask computation for a object is around 0.05 seconds. This step requires the SAM2 environment. Store the path of the python interpreter under the local SAM2 environment into "Animal_Detection" > "Env_Path" in the config.json file, and write the path of the pretrained weight archive file into "Ckpt_Path". 
 
 On the GUI interface, select the "experiment" folder in the project to be processed.
 We need to first annotate the first frame of each video. Click "annotation first frame" to open the first frame of the video. In the popped-up window, click on the pixels that belong to the animal. The default ID is 1. If there are two animals, you can manually press 2 and then select the pixels belonging to the second animal, and so on. Press 0 to select the background pixels. After finishing, press Q to exit. The obtained mask will be stored in the "annotation" folder.
@@ -135,7 +135,7 @@ Animal detection results
 
 The final step is embedding extraction and visualization, which requires the Point-SAM environment. Store the path of the python interpreter under the local Point_sam environment into "Embedding Extraction" > "Env_Path" in the config.json file, and write the path of the pretrained weight file into "Ckpt_Path". 
 
-On the GUI interface, select the "experiment" folder in the project to be processed, then click the three buttons in sequence, and wait for the success prompt. The point cloud will be generated in "point cloud" under the "experiment" folder, and the embedding results will be generated in the "embeddings" folder. Finally, click "UMAP and Visualize" to generate an interactive UMAP graph.
+On the GUI interface, select the "experiment" folder in the project to be processed, then click the three buttons in sequence, and wait for the success prompt. The point cloud will be generated(around 2 seconds per pointcloud) in "point cloud" under the "experiment" folder, and the embedding results will be generated in the "embeddings" folder(around 0.14 seconds per pointcloud if rotation is set to be 1). Finally, click "UMAP and Visualize" to generate an interactive UMAP graph.
 
 <p align="center">
 <img src="pictures/extraction_page.png" height="300">
@@ -153,3 +153,4 @@ UMAP visualization results
 
 
 </p>
+
