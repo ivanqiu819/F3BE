@@ -151,6 +151,10 @@ Embedding extraction page
 <p align="center">
 UMAP visualization results  
 
+## License
+The F3BE is licensed under Apache 2.0, and the models used in F3BE are licensed under their own license.
+
 
 </p>
+
 
