@@ -36,6 +36,8 @@ Create a new project
 The structure of new project
 </p>
 
+If you find any problems about the structure of data, you may download an example project(processed data) via this link: https://drive.google.com/file/d/1PC_3cX9a40iiUJX_KnKKg9o1HN8fD4sV/view?usp=sharing
+
 ### Intrinsic Calibration
 
 First, we need to calibrate the intrinsic parameters of each camera. This is done using a checkerboard calibration board. The photos of the calibration board should be taken by each camera in different poses to ensure accurate calibration.
@@ -148,5 +150,6 @@ Embedding extraction page
 </p>
 <p align="center">
 UMAP visualization results  
+
 
 </p>
